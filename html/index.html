@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海龟汤 - 多人推理游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-screen" class="screen active">
+        <div class="login-container">
+            <div class="logo">
+                <div class="logo-icon">🐢</div>
+                <h1>海龟汤</h1>
+                <p>多人在线推理游戏</p>
+            </div>
+            <div class="form-group">
+                <label for="username">你的昵称</label>
+                <input type="text" id="username" placeholder="请输入昵称" maxlength="20">
+            </div>
+            <div class="form-group">
+                <label for="room-id">房间ID</label>
+                <input type="text" id="room-id" placeholder="输入房间ID或留空创建新房间" maxlength="32">
+            </div>
+            <button id="join-btn" class="btn-primary">加入游戏</button>
+            <div class="tips">
+                <p>💡 提示：房间ID可自定义，与好友分享即可一起游戏</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-screen" class="screen">
+        <div class="game-header">
+            <div class="header-left">
+                <button id="back-btn" class="btn-back">← 返回</button>
+                <h2>🐢 海龟汤</h2>
+            </div>
+            <div class="header-right">
+                <span class="room-id">房间: <span id="current-room"></span></span>
+                <span class="online-count" id="online-count">在线: 0</span>
+            </div>
+        </div>
+
+        <div class="game-container">
+            <div class="side-panel">
+                <div class="panel-header">
+                    <h3>在线玩家</h3>
+                </div>
+                <div class="user-list" id="user-list">
+                    <div class="user-item loading">加载中...</div>
+                </div>
+            </div>
+
+            <div class="main-panel">
+                <div class="game-info">
+                    <div class="info-card">
+                        <h3>🍜 汤面</h3>
+                        <p id="puzzle-background">等待主持人开始游戏...</p>
+                    </div>
+                </div>
+
+                <div class="chat-area">
+                    <div class="message-list" id="message-list">
+                        <div class="system-message">
+                            <span>欢迎来到海龟汤游戏！</span>
+                        </div>
+                    </div>
+                    <div class="input-area">
+                        <div class="input-row">
+                            <textarea id="message-input" placeholder="输入问题或聊天内容..." rows="2"></textarea>
+                            <button id="send-btn" class="btn-send">发送</button>
+                        </div>
+                        <div class="input-actions">
+                            <button id="ask-btn" class="btn-ask">提问 AI</button>
+                            <button id="new-puzzle-btn" class="btn-new">新谜题</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js?v=5"></script>
+</body>
+</html>
