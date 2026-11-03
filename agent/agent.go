@@ -79,7 +79,8 @@ func (pa *PuzzleAgent) OutputMessage(ctx context.Context, id string, input strin
 	runner := adk.NewRunner(ctx, adk.RunnerConfig{Agent: pa.agent, EnableStreaming: true})
 	var messageText strings.Builder
 	for _, msg := range sess.GetMessages() {
-		messageText.WriteString(msg.Content + "\n")
+		messageText.WriteString(msg.Content)
+		messageText.WriteString("\n")
 	}
 	iter := runner.Query(ctx, messageText.String(), options...)
 	pa.stream(id, iter, streamFunc)
